@@ -10,7 +10,8 @@ func main(){
 	log.SetPrefix("greetings: ")
     log.SetFlags(0)
 
-	ingilizce , err := greetings.Merhaba("")
+	names := []string{"Gladys", "Samantha", "Darrin"}
+	ingilizce , err := greetings.Hellos(names)
 
 	if err != nil {
 		log.Fatal(err)
