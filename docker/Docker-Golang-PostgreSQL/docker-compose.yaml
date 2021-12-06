@@ -1,0 +1,29 @@
+version : "3"
+services:
+  go:
+    build: . 
+    ports:
+      - "8091:8091"
+    volumes:
+      - postgres:/data/postgres
+    environment:
+      - PORT=8091
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456789
+      - POSTGRES_DB=golang
+    depends_on:
+      - postgre
+  postgre:
+    image: postgres
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=123456789
+      - POSTGRES_DB=golang
+    ports:
+      - 5454:5432
+    restart: always
+    volumes:
+    - postgres:/data/db
+  
+volumes:
+  postgres:
