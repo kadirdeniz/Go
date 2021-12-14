@@ -11,6 +11,8 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=123456789
       - POSTGRES_DB=golang
+      - POSTGRES_HOST=postgre
+      - POSTGRES_PORT=5455
     depends_on:
       - postgre
   postgre:
@@ -20,7 +22,7 @@ services:
       - POSTGRES_PASSWORD=123456789
       - POSTGRES_DB=golang
     ports:
-      - 5454:5432
+      - 5455:5432
     restart: always
     volumes:
     - postgres:/data/db
