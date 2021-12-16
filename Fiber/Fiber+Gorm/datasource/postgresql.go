@@ -3,6 +3,7 @@ package datasource
 import (
 	"fmt"
 
+	"github.com/fiber/gorm/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -25,4 +26,6 @@ func ConnectDB() {
 	}
 	fmt.Println("DB Connection Success")
 	PostgreDB = db
+
+	db.AutoMigrate(&model.Car{})
 }

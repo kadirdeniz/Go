@@ -16,5 +16,5 @@ func (db *DB) DSNConverter() string {
 }
 
 func (db *DB) URIConverter() string {
-	return fmt.Sprintf("%d://%d:%d@%d:%d/%d", db.Name, db.User, db.Password, db.Host, db.Port, db.Db)
+	return fmt.Sprintf("%v://%v:%v@%v:%v/%v", db.Name, db.User, db.Password, db.Host, db.Port, db.Db)
 }
